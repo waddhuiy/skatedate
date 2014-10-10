@@ -3,7 +3,7 @@
 ### do something
 
     npm install
-    node server
+    npm start
 
 then hit localhost:3000.
 
