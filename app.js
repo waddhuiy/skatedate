@@ -1,4 +1,7 @@
-var express = require('express');
+var application_root = __dirname,
+    express          = require("express"),
+    path             = require("path"),
+    mongoose         = require('mongoose');
 
 var app = express();
 var port = 3000;
