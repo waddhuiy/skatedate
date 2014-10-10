@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/NomadicWeb/skatedate",
   "dependencies": {
-    "express": "4.9.7"
+    "express": "4.9.7",
+    "mongoose": "3.8.17"
   }
 }
