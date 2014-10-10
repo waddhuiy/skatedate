@@ -1,3 +1,9 @@
 # skatedate (until we find a better name)
 
-@todo
+### do something
+run:
+
+    node server
+
+then hit localhost:3000.
+
