@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/NomadicWeb/skatedate/issues"
   },
-  "homepage": "https://github.com/NomadicWeb/skatedate"
+  "homepage": "https://github.com/NomadicWeb/skatedate",
+  "dependencies": {
+    "express": "4.x"
+  }
 }
