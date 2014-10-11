@@ -1,16 +1,22 @@
-var application_root = __dirname,
-    express          = require("express"),
-    path             = require("path"),
-    mongoose         = require('mongoose');
+var express    = require('express');
+var conf       = require('./app/config/conf.js');
+var mongoose   = require('mongoose');
+var bodyParser = require('body-parser');
 
-var app = express();
-var port = 3000;
+var app        = express();
+var router     = express.Router();
 
-app.get('/', function(req, res){
-      res.send('Hello World!');
+app.set('port', conf.port);
+// mongoose.connect(conf.mongodburl);
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use('/api', router);
+
+router.get('/', function(req, res) {
+    res.json({ message: 'hooray! welcome to our api!' });   
 });
 
-var server = app.listen(port, function() {
-        console.log('Listening on port %d', server.address().port);
-});
 
+app.listen(app.get('port'), function(){
+      console.log('Listening on ' + app.get('port'));
+});
