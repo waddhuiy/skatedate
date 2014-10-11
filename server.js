@@ -13,9 +13,32 @@ var router = express.Router();
 app.set('port', conf.port);
 mongoose.connect(conf.mongodburl);
 
-
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+// a test route to check out user stuff
+router.route('/user')
+    .post(function(req, res){
+        var user = new User();
+
+        // @todo - grab from url
+        // dummy insertion for testing 
+        user.firstname = "luke";
+        user.lastname = "murphy";
+
+        user.save(function(err){
+            if(err){res.send(err);}
+            res.json({message: 'User created!'});
+        });
+    })
+    .get(function(req, res){
+        User.find(function(err, users){
+            if(err){res.send(err);}
+            res.json(users);
+        });
+    });
+
+
 app.use('/api', router);
 
 // do something everytime API gets a request
