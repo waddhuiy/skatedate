@@ -7,5 +7,9 @@ user:   id
         city
         facebook-username
 
-thread: started-by
+thread: title
+        id
+        started-by(User id)
         city
+        date
+        
