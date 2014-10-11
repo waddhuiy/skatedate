@@ -1,2 +1,2 @@
-var port       = 8080;
-var mongodburl = "";
+exports.port       = 8080;
+exports.mongodburl = "";
