@@ -1,5 +1,5 @@
 var express    = require('express');
-var conf       = require('./app/config/conf.js');
+var conf       = require('app/config/conf.js');
 var mongoose   = require('mongoose');
 var bodyParser = require('body-parser');
 
@@ -7,7 +7,8 @@ var app        = express();
 var router     = express.Router();
 
 app.set('port', conf.port);
-// mongoose.connect(conf.mongodburl);
+mongoose.connect(conf.mongodburl);
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use('/api', router);
