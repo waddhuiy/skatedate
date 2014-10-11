@@ -2,7 +2,7 @@
   "name": "skatedate",
   "version": "1.0.0",
   "description": "An app to help find skateboarders.",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
     "start": "node app.js"
   },
