@@ -28,4 +28,4 @@ node_modules
 .lock-wscript
 
 # ignore user configuration, only include sample
-./app/config/conf.js
+app/config/conf.js
