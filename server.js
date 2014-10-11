@@ -1,20 +1,58 @@
-// requires
+// ====================================================
+// EXPRESS
+// ====================================================
 var express    = require('express');
+var app        = express();
+
+// ====================================================
+// APP CONFIG
+// ====================================================
+// requires configuration data such as port numbers,
+// mongodb urls etc etc.
 var conf       = require('./app/config/conf.js');
-var mongoose   = require('mongoose');
-var bodyParser = require('body-parser');
-
-// schema requires
-var User = require('./app/models/user.js');
-
-var app    = express();
-var router = express.Router();
-
 app.set('port', conf.port);
-mongoose.connect(conf.mongodburl);
 
+// body-parser
+// @todo - what is this doing exactly?
+var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+
+// ====================================================
+// MONGODB
+// ====================================================
+var mongoose   = require('mongoose');
+mongoose.connect(conf.mongodburl);
+
+// schema requires
+var User       = require('./app/models/user.js');
+
+
+// ====================================================
+// MIDDLEWARE
+// ====================================================
+// do something everytime API gets a request
+router.use(function(req, res, next) {
+    // do anything you want here
+    console.log('Received a request :)');
+
+    // continue on
+    next();
+});
+
+// ====================================================
+// ROUTING
+// ====================================================
+var router = express.Router();
+
+// setup default prefix for API
+app.use('/api', router);
+
+// test our API at localhost:port/api
+router.get('/', function(req, res) {
+    res.json({ message: 'hooray! welcome to our api!' });
+});
 
 // a test route to check out user stuff
 router.route('/user')
@@ -39,22 +77,10 @@ router.route('/user')
     });
 
 
-app.use('/api', router);
-
-// do something everytime API gets a request
-router.use(function(req, res, next) {
-    // do anything you want here
-    console.log('Received a request :)');
-
-    // continue on
-    next();
-});
-
-router.get('/', function(req, res) {
-    res.json({ message: 'hooray! welcome to our api!' });
-});
-
-
+// ====================================================
+// SERVER
+// ====================================================
+// kick off server
 app.listen(app.get('port'), function(){
       console.log('Listening on ' + app.get('port'));
 });
