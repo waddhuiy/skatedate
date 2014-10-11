@@ -1,10 +1,10 @@
 var express    = require('express');
-var conf       = require('app/config/conf');
+var conf       = require('./app/config/conf.js');
 var mongoose   = require('mongoose');
 var bodyParser = require('body-parser');
 
 // schema imports
-var User = require('app/models/user');
+var User = require('./app/models/user.js');
 
 var app        = express();
 var router     = express.Router();
