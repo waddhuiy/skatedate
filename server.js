@@ -30,18 +30,6 @@ var User       = require('./app/models/user.js');
 
 
 // ====================================================
-// MIDDLEWARE
-// ====================================================
-// do something everytime API gets a request
-router.use(function(req, res, next) {
-    // do anything you want here
-    console.log('Received a request :)');
-
-    // continue on
-    next();
-});
-
-// ====================================================
 // ROUTING
 // ====================================================
 var router = express.Router();
@@ -75,6 +63,19 @@ router.route('/user')
             res.json(users);
         });
     });
+
+
+// ====================================================
+// MIDDLEWARE
+// ====================================================
+// do something everytime API gets a request
+router.use(function(req, res, next) {
+    // do anything you want here
+    console.log('Received a request :)');
+
+    // continue on
+    next();
+});
 
 
 // ====================================================
