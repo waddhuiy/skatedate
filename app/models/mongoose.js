@@ -1,7 +1,14 @@
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/fart');
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function callback () {
-    console.log("Hurray");
+var mongoose   = require('mongoose');
+var Schema     = mongoose.Schema;
+
+var UserSchema = new Schema({
+    firstname: String,
+    lastname:  String,
+    age:        Number,
+    email:      String,
+    number:     Number,
+    city:       String,
+    fburl:      String
 });
+
+module.exports = mongoose.model('User', UserSchema);
