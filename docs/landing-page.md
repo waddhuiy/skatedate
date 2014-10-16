@@ -1,5 +1,5 @@
 # What?
-<site name> allows skateboarders who are travelling to easily find locals and spots at their destination. It also allows those locals to be aware of visiting skateboarders in their city.
+<site name> allows skateboarders who are travelling to easily find locals and spots at their destination. It also allows those locals to be notified of visiting skateboarders in their city.
 
 # Who are we?
 <site name> is comprised of three skateboards from Dublin. Paddy Walsh who is a graphic designer and who is currently residing in Dublin originally came up for with the idea for <site name>, currently paddy alongside with two other skateboarders from Dublin is working on a online publication showcasing the Dublin the skate scene. The other two founders of <site name> are Martin O'Grady and Luke Murphy who are two programmers who left Ireland last summer to build skateparks in Palestine for a charity known as SkatePal. Currently Luke and Martin are travelling around South America and are hoping to use <site name> to meet local skateboarders and to skate the spots their cities have to offer. 
