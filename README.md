@@ -2,7 +2,7 @@
 SkateDate
 ========================================================
 
-We are making a service that will help skateboarders. The name is a work in progress.
+We are making a service that will help skateboarders. The name is a work in progress. This codebase contains the back-end RESTful API which access our model.
 
 
 ========================================================
