@@ -33,6 +33,8 @@ var User       = require('./app/models/user.js');
 // ROUTING
 // ====================================================
 var router = express.Router();
+// THIS IS HOW WE CAN DO ROUTES THE EASIEST
+//http://start.jcolemorrison.com/quick-tip-organizing-routes-in-large-express-4-x-apps/
 
 // setup default prefix for API
 app.use('/api', router);
