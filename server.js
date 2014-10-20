@@ -3,7 +3,6 @@
 // ====================================================
 var express    = require('express');
 var app        = express();
-var router     = express.Router();
 
 // ====================================================
 // APP CONFIG
@@ -28,33 +27,38 @@ mongoose.connect(conf.mongodburl);
 // ====================================================
 // ROUTING
 // ====================================================
+var router = require('./app/router')(app);
 
-// test our API at localhost:port/api
-router.get('/', function(req, res) {
-    res.json({ message: 'hooray! welcome to our api!' });
+app.use(function(err, req, res, next) {
+    res.status(err.status || 500);
 });
 
-// a test route to check out user stuff
-router.route('/user')
-    .post(function(req, res){
-        var user = new User();
+module.exports = app;
 
-        // @todo - grab from url
-        // dummy insertion for testing 
-        user.firstname = "luke";
-        user.lastname = "murphy";
+// router.get('/', function(req, res) {
+//     res.json({ message: 'hooray! welcome to our api!' });
+// });
 
-        user.save(function(err){
-            if(err){res.send(err);}
-            res.json({message: 'User created!'});
-        });
-    })
-    .get(function(req, res){
-        User.find(function(err, users){
-            if(err){res.send(err);}
-            res.json(users);
-        });
-    });
+// router.route('/user')
+//     .post(function(req, res){
+//         var user = new User();
+
+//         // @todo - grab from url
+//         // dummy insertion for testing 
+//         user.firstname = "luke";
+//         user.lastname = "murphy";
+
+//         user.save(function(err){
+//             if(err){res.send(err);}
+//             res.json({message: 'User created!'});
+//         });
+//     })
+//     .get(function(req, res){
+//         User.find(function(err, users){
+//             if(err){res.send(err);}
+//             res.json(users);
+//         });
+//     });
 
 
 // ====================================================
