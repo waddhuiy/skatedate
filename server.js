@@ -3,18 +3,15 @@
 // ====================================================
 var express    = require('express');
 var app        = express();
+var router     = express.Router();
 
 // ====================================================
 // APP CONFIG
 // ====================================================
-// requires configuration data such as port numbers,
-// mongodb urls etc etc.
 var conf       = require('./app/config/conf.js');
-app.set('port', conf.port);
-
-// body-parser
-// @todo - what is this doing exactly?
 var bodyParser = require('body-parser');
+
+app.set('port', conf.port);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -23,21 +20,14 @@ app.use(bodyParser.json());
 // MONGODB
 // ====================================================
 var mongoose   = require('mongoose');
-mongoose.connect(conf.mongodburl);
-
-// schema requires
 var User       = require('./app/models/user.js');
+
+mongoose.connect(conf.mongodburl);
 
 
 // ====================================================
 // ROUTING
 // ====================================================
-var router = express.Router();
-// THIS IS HOW WE CAN DO ROUTES THE EASIEST
-//http://start.jcolemorrison.com/quick-tip-organizing-routes-in-large-express-4-x-apps/
-
-// setup default prefix for API
-app.use('/api', router);
 
 // test our API at localhost:port/api
 router.get('/', function(req, res) {
@@ -68,22 +58,8 @@ router.route('/user')
 
 
 // ====================================================
-// MIDDLEWARE
-// ====================================================
-// do something everytime API gets a request
-router.use(function(req, res, next) {
-    // do anything you want here
-    console.log('Received a request :)');
-
-    // continue on
-    next();
-});
-
-
-// ====================================================
 // SERVER
 // ====================================================
-// kick off server
 app.listen(app.get('port'), function(){
       console.log('Listening on ' + app.get('port'));
 });
