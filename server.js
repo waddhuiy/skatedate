@@ -19,8 +19,6 @@ app.use(bodyParser.json());
 // MONGODB
 // ====================================================
 var mongoose   = require('mongoose');
-var User       = require('./app/models/user.js');
-
 mongoose.connect(conf.mongodburl);
 
 
@@ -34,31 +32,6 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
-
-// router.get('/', function(req, res) {
-//     res.json({ message: 'hooray! welcome to our api!' });
-// });
-
-// router.route('/user')
-//     .post(function(req, res){
-//         var user = new User();
-
-//         // @todo - grab from url
-//         // dummy insertion for testing 
-//         user.firstname = "luke";
-//         user.lastname = "murphy";
-
-//         user.save(function(err){
-//             if(err){res.send(err);}
-//             res.json({message: 'User created!'});
-//         });
-//     })
-//     .get(function(req, res){
-//         User.find(function(err, users){
-//             if(err){res.send(err);}
-//             res.json(users);
-//         });
-//     });
 
 
 // ====================================================
