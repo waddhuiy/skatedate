@@ -2,9 +2,9 @@ var express = require('express');
 var User    = require('./../../../models/user.js');
 var router  = express.Router();
 
-router.route('/')
 
-    .post(function(req, res){
+
+   router.post('/' ,function(req, res){
         var user = new User();
 
         // @todo - grab from url
@@ -18,9 +18,12 @@ router.route('/')
         });
     })
 
-    .get(function(req, res){
+    router.get('/' ,function(req, res){
+        // res.json({message: "Users be using."});
         User.find(function(err, users){
             if(err){res.send(err);}
             res.json(users);
         });
     });
+
+module.exports = router;
