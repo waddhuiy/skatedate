@@ -41,7 +41,7 @@ valuable if your stay in the city is for short amount of time. We also believe
 that by using <site name> you can truly experience what the local skate scene
 is like from hanging out with locals.
 
-
+#
 # Problems
 We have pitched the idea to various skateboarders we know to get some feedback, 
 and some of the feedback we got was: 
